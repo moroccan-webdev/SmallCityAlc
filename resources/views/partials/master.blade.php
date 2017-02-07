@@ -27,6 +27,5 @@
         </div>
 
         @include('partials.scriptssection')
-
     </body>
 </html>

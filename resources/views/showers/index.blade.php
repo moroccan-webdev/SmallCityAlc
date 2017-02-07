@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container">
+  <div class="col-md-12 col-sm-12 col-xs-12">
     <div class="row">
         <div class="main_test fix">
             <div class="col-md-12 col-sm-12 col-xs-12">
@@ -90,6 +91,11 @@
                 								<button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
                 								{!! Form::close() !!}
                               </div>
+                              <div class="btn-xs" style="display:inline-block">
+                                {!! Form::open(['route' => ['getPDF', $shower->id], 'method' => 'get']) !!}
+                								<button type="submit" class="btn btn-info btn-xs"><i class="fa fa-print" aria-hidden="true"></i></button>
+                								{!! Form::close() !!}
+                              </div>
               						</td>
                           </tr>
                     </tr>
@@ -113,7 +119,7 @@
               </div>
         </div>
         </div>
-        </div>
+      </div>
     </div>
 </div>
 @endsection

@@ -51,7 +51,7 @@
                           Teacher : {{$shower->teacher}}
                       </div>
                       <div class="col-sm-10 col-sm-offset-1" id="blockone">
-                          Created At : {{$shower->Created_at}}
+                          Created At : {{$shower->created_at}}
                       </div>
                   </div>
                   <div class="col-md-1">

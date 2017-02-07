@@ -19,4 +19,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
 Route::resource('/showers', 'ShowerController');
+//Download PDFs
+Route::get('getPDF/{id}', ['uses' => 'PdfController@getPDF', 'as' => 'getPDF']);
