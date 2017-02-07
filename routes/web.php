@@ -11,6 +11,12 @@
 |
 */
 
+//Route::get('/', function () {return view('welcome');});
 Route::get('/', function () {
-    return view('welcome');
+    return view('partials.master');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
+Route::resource('/showers', 'ShowerController');
