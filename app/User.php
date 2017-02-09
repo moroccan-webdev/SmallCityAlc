@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','level_id', 'role_id', 'class','phone', 'avatar'
     ];
 
     /**
@@ -26,4 +26,18 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function level()
+    {
+      return $this->belongsTo('App\Level');
+    }
+
+    public function roleplays()
+    {
+        return $this->belongsToMany('App\Roleplay');
+    }
+    public function role()
+    {
+        return $this->belongsTo('App\Role');
+    }
 }

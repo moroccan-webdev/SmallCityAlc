@@ -25,7 +25,7 @@
             <div class="col-md-10 col-md-offset-1">
               <div class="panel panel-default">
               <div class="panel-heading">Create Student</div>
-              {!! Form::model($shower,['method' => 'PATCH', 'action' => ['ShowerController@update', $shower->id],'files'=> true]) !!}
+              {!! Form::model($user,['method' => 'PATCH', 'action' => ['UserController@update', $user->id],'files'=> true]) !!}
                   <div class="form-group">
                     {!! form::text('name', null,['class'=>'form-control','placeholder'=>'Name'])!!}
                   </div>
@@ -37,7 +37,8 @@
                       {!! form::select('level_id',[''=>'choose category']+$levels, null,['class'=>'form-control'])!!}
                   </div>
                   <div class="form-group">
-                    {!! form::text('stars', null,['class'=>'form-control','placeholder'=>'Stars'])!!}
+
+                      {!! form::select('role_id',[''=>'choose role']+$roles, null,['class'=>'form-control'])!!}
                   </div>
                   <div class="form-group">
                     {!! form::text('class', null,['class'=>'form-control','placeholder'=>'Class'])!!}
@@ -46,13 +47,10 @@
                     {!! form::text('phone', null,['class'=>'form-control','placeholder'=>'Phone'])!!}
                   </div>
                   <div class="form-group">
-                    {!! form::text('teacher', null,['class'=>'form-control','placeholder'=>'Teacher'])!!}
+                    {!! form::file('avatar',['class'=>'form-control','placeholder'=>'image'])!!}
                   </div>
                   <div class="form-group">
-                    {!! form::file('image',['class'=>'form-control','placeholder'=>'image'])!!}
-                  </div>
-                  <div class="form-group">
-                    {!! form::submit('Create Student', ['class'=>'btn btn-primary'])!!}
+                    {!! form::submit('Update User', ['class'=>'btn btn-primary'])!!}
                   </div>
                 {!! Form::close() !!}
               </div>

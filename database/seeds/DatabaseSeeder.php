@@ -12,10 +12,6 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // $this->call(UsersTableSeeder::class);
-        DB::table('users')->insert([
-            [ 'name' => 'Root','email' => 'root@root.com','password' => bcrypt('000000'), 'created_at' => '2017-01-31 16:47:30'],
-            [ 'name' => 'Admin','email' => 'admin@admin.com','password' => bcrypt('000000'), 'created_at' => '2017-01-31 16:47:30'],          
-        ]);
         DB::table('levels')->insert([
             ['level' => 'Beg 1','created_at' => '2017-01-31 16:47:30', 'updated_at' => '2017-01-10 16:47:30'],
             ['level' => 'Beg 2','created_at' => '2017-01-31 16:47:30', 'updated_at' => '2017-01-10 16:47:30'],
@@ -37,73 +33,70 @@ class DatabaseSeeder extends Seeder
             ['level' => 'Speaker','created_at' => '2017-01-31 16:47:30', 'updated_at' => '2017-01-10 16:47:30'],
             ['level' => 'Supervisor','created_at' => '2017-01-31 16:47:30', 'updated_at' => '2017-01-10 16:47:30']
         ]);
-        DB::table('showers')->insert([
-            ['name' => 'Imad Rami',
+
+        DB::table('roles')->insert([
+            ['role' => 'Student','created_at' => '2017-01-31 16:47:30', 'updated_at' => '2017-01-10 16:47:30'],
+            ['role' => 'Teacher','created_at' => '2017-01-31 16:47:30', 'updated_at' => '2017-01-10 16:47:30'],
+            ['role' => 'Administrator','created_at' => '2017-01-31 16:47:30', 'updated_at' => '2017-01-10 16:47:30']
+        ]);
+
+        DB::table('users')->insert([
+            ['name' => 'Mohamed Msassi',
              'email' => 'smallcity@gmail.com',
-             'phone' => '+21266589754',
-             'class' => 'Beginning One',
-             'teacher' => 'Mohamed Amin',
-             'image' => 'default.png',
-             'level_id' => 4,
-             'stars' => 1,
-             'created_at' => '2017-01-31 16:47:30',
-             'updated_at' => '2017-01-10 16:47:30'
-           ],
-            ['name' => 'Rayan Ibrahim',
-             'email' => 'rayan@gmail.com',
-             'phone' => '+21266586754',
-             'class' => 'Intermediate Three',
-             'teacher' => 'Mohamed Amin',
-             'image' => 'default.png',
-             'level_id' => 9,
-             'stars' => 2,
-             'created_at' => '2017-01-31 16:47:30',
-             'updated_at' => '2017-01-10 16:47:30'
-           ],
-            ['name' => 'Ranim Issa',
-             'email' => 'Ranim@gmail.com',
-             'phone' => '+212142458254',
-             'class' => 'Advanced Five',
-             'teacher' => 'Mohamed Reda',
-             'image' => 'default.png',
-             'level_id' => 17,
-             'stars' => 5,
-             'created_at' => '2017-01-31 16:47:30',
-             'updated_at' => '2017-01-10 16:47:30'
-           ],
-            ['name' => 'Ranim Issa',
-             'email' => 'Ranim@gmail.com',
-             'phone' => '+212142458254',
-             'class' => 'Supervisor',
-             'teacher' => 'Mohamed Reda',
-             'image' => 'default.png',
              'level_id' => 19,
-             'stars' => 5,
+             'role_id' => 2,
+             'class' => 'B1',
+             'phone' => '+21266589754',
+             'password' => bcrypt('000000'),
+             'created_at' => '2017-01-31 16:47:30',
+             'updated_at' => '2017-01-10 16:47:30'
+           ],
+            ['name' => 'Abdennour Merghad',
+             'email' => 'root@root.com',
+             'level_id' => 19,
+             'role_id' => 3,
+             'class' => 'B1',
+             'phone' => '+21266589754',
+             'password' => bcrypt('000000'),
              'created_at' => '2017-01-31 16:47:30',
              'updated_at' => '2017-01-10 16:47:30'
            ]
         ]);
 
+        DB::table('slots')->insert([
+            [
+             'from' => '2017-01-31 16:47:30',
+             'to' => '2017-01-31 16:47:59',
+             'created_at' => '2017-01-31 16:47:30',
+             'updated_at' => '2017-01-10 16:47:30'
+            ],
+            [
+             'from' => '2017-01-21 16:47:30',
+             'to' => '2017-01-31 16:47:59',
+             'created_at' => '2017-01-31 16:47:30',
+             'updated_at' => '2017-01-10 16:47:30'
+            ]
+        ]);
+
         DB::table('roleplays')->insert([
-            ['name' => 'Cinema role play ','city' => 'Tangier','center' => 'ALC','created_at' => '2017-01-31 16:47:30', 'updated_at' => '2017-01-10 16:47:30'],
+            ['name' => 'Cinema role play ','city' => 'Tangier','center' => 'ALC', 'created_at' => '2017-01-31 16:47:30', 'updated_at' => '2017-01-10 16:47:30'],
             ['name' => 'Agent asker','city' => 'Tangier','center' => 'ALC','created_at' => '2017-01-31 16:47:30', 'updated_at' => '2017-01-10 16:47:30'],
             ['name' => 'Cinema worker and descussior','city' => 'Tangier','center' => 'ALC','created_at' => '2017-01-31 16:47:30', 'updated_at' => '2017-01-10 16:47:30'],
             ['name' => 'Coffe joker and server','city' => 'Tangier','center' => 'ALC','created_at' => '2017-01-31 16:47:30', 'updated_at' => '2017-01-10 16:47:30']
         ]);
-        DB::table('roleplay_shower')->insert([
-            ['shower_id' => 1, 'roleplay_id' => 1,'created_at' => '2017-01-31 16:47:30','updated_at' => '2017-01-10 16:47:30'],
-            ['shower_id' => 2, 'roleplay_id' => 1,'created_at' => '2017-01-31 16:47:30','updated_at' => '2017-01-10 16:47:30'],
-            ['shower_id' => 4, 'roleplay_id' => 1,'created_at' => '2017-01-31 16:47:30','updated_at' => '2017-01-10 16:47:30'],
-            ['shower_id' => 2, 'roleplay_id' => 2,'created_at' => '2017-01-31 16:47:30','updated_at' => '2017-01-10 16:47:30'],
-            ['shower_id' => 3, 'roleplay_id' => 2,'created_at' => '2017-01-31 16:47:30','updated_at' => '2017-01-10 16:47:30'],
-            ['shower_id' => 4, 'roleplay_id' => 2,'created_at' => '2017-01-31 16:47:30','updated_at' => '2017-01-10 16:47:30'],
-            ['shower_id' => 1, 'roleplay_id' => 3,'created_at' => '2017-01-31 16:47:30','updated_at' => '2017-01-10 16:47:30'],
-            ['shower_id' => 2, 'roleplay_id' => 3,'created_at' => '2017-01-31 16:47:30','updated_at' => '2017-01-10 16:47:30'],
-            ['shower_id' => 4, 'roleplay_id' => 3,'created_at' => '2017-01-31 16:47:30','updated_at' => '2017-01-10 16:47:30'],
-            ['shower_id' => 2, 'roleplay_id' => 4,'created_at' => '2017-01-31 16:47:30','updated_at' => '2017-01-10 16:47:30'],
-            ['shower_id' => 3, 'roleplay_id' => 4,'created_at' => '2017-01-31 16:47:30','updated_at' => '2017-01-10 16:47:30'],
-            ['shower_id' => 4, 'roleplay_id' => 4,'created_at' => '2017-01-31 16:47:30','updated_at' => '2017-01-10 16:47:30']
+
+        DB::table('roleplay_user')->insert([
+            ['user_id' => 1, 'roleplay_id' => 1,'created_at' => '2017-01-31 16:47:30','updated_at' => '2017-01-10 16:47:30'],
+            ['user_id' => 2, 'roleplay_id' => 1,'created_at' => '2017-01-31 16:47:30','updated_at' => '2017-01-10 16:47:30'],
+            ['user_id' => 1, 'roleplay_id' => 1,'created_at' => '2017-01-31 16:47:30','updated_at' => '2017-01-10 16:47:30'],
+            ['user_id' => 2, 'roleplay_id' => 2,'created_at' => '2017-01-31 16:47:30','updated_at' => '2017-01-10 16:47:30']
         ]);
+        DB::table('roleplay_slot')->insert([
+            ['slot_id' => 1, 'roleplay_id' => 1,'created_at' => '2017-01-31 16:47:30','updated_at' => '2017-01-10 16:47:30'],
+            ['slot_id' => 2, 'roleplay_id' => 1,'created_at' => '2017-01-31 16:47:30','updated_at' => '2017-01-10 16:47:30'],
+            ['slot_id' => 1, 'roleplay_id' => 1,'created_at' => '2017-01-31 16:47:30','updated_at' => '2017-01-10 16:47:30']
+        ]);
+
         DB::table('comments')->insert([
             ['username' => 'Imad Rami','body' => 'What happens when you stick over one billion people on a social network where everything is mostly public? Some pretty hilarious and embarrassing stuff', 'roleplay_id' => 1,'created_at' => '2017-01-31 16:47:30','updated_at' => '2017-01-10 16:47:30'],
             ['username' => 'Rayan Ibrahim','body' => 'We sorted through the ruff to find the diamonds and so we present for your viewing pleasure, the forty-five most epic Facebook comments ever', 'roleplay_id' => 1,'created_at' => '2017-01-31 16:47:30','updated_at' => '2017-01-10 16:47:30'],

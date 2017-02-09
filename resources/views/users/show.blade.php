@@ -5,8 +5,8 @@
     <div class="row">
           <div class="col-md-12 col-sm-12 col-xs-12">
               <div class="head_title text-center fix">
-                  <h2 class="text-uppercase">students</h2>
-                  <h5>All students are listed in the following div</h5>
+                  <h2 class="text-uppercase">Users</h2>
+                  <h5>All users are shown in the following div</h5>
               </div>
               @if (count($errors) > 0)
                 <div class="alert alert-danger" role="alert">
@@ -23,39 +23,39 @@
           </div>
             <div class="col-md-10 col-md-offset-1">
                 <div class="col-md-12" id="title">
-                    Student Name : {{$shower->name}}
+                    Student Name : {{$user->name}}
                 </div>
                 <div class="col-md-12" id="title">
                   <div class="col-md-1">
-                    <a href="{{ route( 'showers.show', $previous) }}" class="big_icon"
+                    <a href="{{ route( 'users.show', $previous) }}" class="big_icon"
                        data-toggle="tooltip" title="Previous">
                        <i class="fa fa-arrow-circle-o-left big_icon" aria-hidden="false"></i></a>
                   </div>
                   <div class="col-md-6">
-                     <img src="/images/{{ $shower->image}}" id="image">
+                     <img src="/images/{{ $user->avatar}}" id="image">
                   </div>
                   <div class="col-md-4">
                       <div class="col-sm-10 col-sm-offset-1" id="blockone">
-                          Email : {{$shower->email}}
+                          Email : {{$user->email}}
                       </div>
                       <div class="col-sm-10 col-sm-offset-1" id="blockone">
-                          Class : {{$shower->class}}
+                          Class : {{$user->level_id}}
                       </div>
                       <div class="col-sm-10 col-sm-offset-1" id="blockone">
-                          Stars :
-                          @for ($i = 0; $i <= $shower->stars; $i++)
-                              <i class="fa fa-star" aria-hidden="true"></i>
-                          @endfor
+                          Role : {{$user->role->role}}
                       </div>
                       <div class="col-sm-10 col-sm-offset-1" id="blockone">
-                          Teacher : {{$shower->teacher}}
+                          Created At : {{$user->class}}
                       </div>
                       <div class="col-sm-10 col-sm-offset-1" id="blockone">
-                          Created At : {{$shower->created_at}}
+                          Created At : {{$user->phone}}
+                      </div>
+                      <div class="col-sm-10 col-sm-offset-1" id="blockone">
+                          Created At : {{$user->created_at}}
                       </div>
                   </div>
                   <div class="col-md-1">
-                    <a href="{{ route( 'showers.show', $next) }}" class=""
+                    <a href="{{ route( 'users.show', $next) }}" class=""
                        data-toggle="tooltip" title="next">
                        <i class="fa fa-arrow-circle-o-right big_icon" aria-hidden="false"></i></a>
                   </div>

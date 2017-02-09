@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRoleplayShowerTable extends Migration
+class CreateRoleplayUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateRoleplayShowerTable extends Migration
      */
     public function up()
     {
-      Schema::create('roleplay_shower', function (Blueprint $table) {
+      Schema::create('roleplay_user', function (Blueprint $table) {
           $table->increments('id');
-          $table->integer('shower_id')->unsigned()->nullable()->index();
+          $table->integer('user_id')->unsigned()->nullable()->index();
           $table->integer('roleplay_id')->unsigned()->nullable()->index();
           $table->timestamps();
       });
@@ -28,6 +28,6 @@ class CreateRoleplayShowerTable extends Migration
      */
     public function down()
     {
-         Schema::dropIfExists('roleplay_shower');
+         Schema::dropIfExists('roleplay_user');
     }
 }

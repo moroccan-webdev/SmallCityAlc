@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Level extends Model
+class Role extends Model
 {
   protected $fillable = [
-      'level',
+      'role',
   ];
 
   public function users()

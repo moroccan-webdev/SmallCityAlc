@@ -14,17 +14,34 @@
                     <div class="navbar-socail text-right sm-text-center">
                         <ul class="list-inline">
                             <li><a href=""><i class="fa fa-facebook"></i></a></li>
-                            <li><a href=""><i class="fa fa-twitter"></i></a></li>
+                            <!--<li><a href=""><i class="fa fa-twitter"></i></a></li>
                             <li><a href=""><i class="fa fa-linkedin"></i></a></li>
-                            <li><a href=""><i class="fa fa-google-plus"></i></a></li>
-                            <li><a href=""><i class="fa fa-behance"></i></a></li>
-                            <li><a href=""><i class="fa fa-dribbble"></i></a></li>
+                            <li><a href=""><i class="fa fa-google-plus"></i></a></li>-->
+                            @if (Auth::guest())
+                            <li>
+                              {!! Form::open(['route' => 'login', 'method' => 'get']) !!}
+                                <button type="submit" class="btn btn-primary btn-xs"><i class="fa fa-sign-in" aria-hidden="true"></i></button>
+                              {!! Form::close() !!}
+                            </li>
+                            <li>
+                              {!! Form::open(['route' => 'register', 'method' => 'get']) !!}
+                                <button type="submit" class="btn btn-primary btn-xs"><i class="fa fa-user-plus" aria-hidden="true"></i></button>
+                              {!! Form::close() !!}
+                            </li>
+                            @else
+                            <li>
+                              {!! Form::open(['route' => 'logout', 'method' => 'POST']) !!}
+                                <button type="submit" class="btn btn-primary btn-xs"><i class="fa fa-sign-out" aria-hidden="true"></i></button>
+                              {!! Form::close() !!}
+                            </li>
+                            @endif
                         </ul>
                     </div>
                 </div>
+
             </div>
         </div>
-    </div>
+   </div>
 
     <!-- Start Top Search -->
     <div class="top-search">
@@ -63,7 +80,7 @@
         <!-- navbar menu -->
         <div class="collapse navbar-collapse" id="navbar-menu">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="{{ route('showers.index') }}">Students</a></li>
+                <li><a href="{{ route('users.index') }}">Users</a></li>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#features">About</a></li>
                 <li><a href="#business">Service</a></li>

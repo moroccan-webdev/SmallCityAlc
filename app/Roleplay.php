@@ -15,8 +15,13 @@ class Roleplay extends Model
     return $this->hasMany('App\Comment');
   }
 
-  public function showers()
+  public function users()
   {
-      return $this->belongsToMany('App\Shower');
+      return $this->belongsToMany('App\User');
+  }
+
+  public function slots()
+  {
+      return $this->belongsToMany('App\Slot');
   }
 }

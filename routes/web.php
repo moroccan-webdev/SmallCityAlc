@@ -11,6 +11,15 @@
 |
 */
 
+//users routes
+//Route::get('/users', ['as' => 'users.index' , 'uses' => 'UserController@index']);
+//Route::get('/profile', 'UserController@profile');
+//Route::post('/profile', 'UserController@update_avatar');
+Route::resource('/users', 'UserController');
+Route::get('getPDF/{id}', ['uses' => 'PdfController@getPDF', 'as' => 'getPDF']);
+
+
+
 //Route::get('/', function () {return view('welcome');});
 Route::get('/', function () {
     return view('partials.master');
@@ -20,6 +29,5 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-Route::resource('/showers', 'ShowerController');
+//Route::resource('/showers', 'ShowerController');
 //Download PDFs
-Route::get('getPDF/{id}', ['uses' => 'PdfController@getPDF', 'as' => 'getPDF']);
