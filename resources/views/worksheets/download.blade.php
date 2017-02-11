@@ -42,7 +42,7 @@
                   </div>
                   <div class="col-md-2 col-md-offset-1">
                     <br>
-                    <a href="{{ URL::to( '/pdfs/' . $filename )}}" class="btn btn-warning" target="_blank"><i class="fa fa-commenting" aria-hidden="true" style="margin-right:3px;"></i>Feedback</a>
+                    <a href="{{ route('feedbacks.create')}}" class="btn btn-warning" target="_blank"><i class="fa fa-commenting" aria-hidden="true" style="margin-right:3px;"></i>Feedback</a>
                   </div>
                 </div>
             </div>

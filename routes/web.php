@@ -18,6 +18,7 @@
 Route::resource('/users', 'UserController');
 Route::resource('/slots', 'SlotController');
 Route::resource('/roleplays', 'RoleplayController');
+Route::resource('/feedbacks', 'FeedbackController',['except'=> ['edit','update']]);
 Route::get('worksheets', ['uses' => 'WorksheetController@index', 'as' => 'worksheets.index']);
 Route::get('worksheets/create', ['uses' => 'WorksheetController@create', 'as' => 'worksheets.create']);
 Route::post('worksheets', ['uses' => 'WorksheetController@generate', 'as' => 'worksheets.generate']);

@@ -10,11 +10,6 @@
                     <h2 class="text-uppercase">Users</h2>
                     <h5>All users are listed in the following div</h5>
                 </div>
-                <div class="col-md-2">
-                  {!! Form::open(['route' => ['worksheets.create'], 'method' => 'get']) !!}
-                    <button type="submit" class="btn btn-primary btn-xs"><i class="fa fa-plus" aria-hidden="true"></i>Create Worksheets</button>
-                  {!! Form::close() !!}
-                </div>
                 <div class="col-md-12">
                   @if (count($errors) > 0)
                     <div class="alert alert-danger" role="alert">
@@ -35,28 +30,34 @@
               <table class="table panel panel-default">
                   <thead class="panel-heading">
                     <td>Id</td>
-                    <td>Level</td>
-                    <td>Slot</td>
-                    <td>Students</td>
-                    <td>Created At</td>
-                    <td>Teacher</td>
+                    <td>Title</td>
+                    <td>Body</td>
+                    <td>Actions</td>
                   </thead>
                   <tbody>
-                    @if($worksheets)
-                      @foreach($worksheets as $worksheet)
+                    @if($feedbacks)
+                      @foreach($feedbacks as $feedback)
                     <tr>
-                      <td>{{ $worksheet->id }}</td>
-                      <td>{{ $worksheet->level->level }}</td>
-                      <td>{{ $worksheet->slot->daterange }}</td>
-                      <td>{{ $worksheet->students }}</td>
-                      <td>{{ $worksheet->created_at }}</td>
-                      <td>{{ $worksheet->teacher }}</td>
-                      <td></td>
+                      <td>{{ $feedback->id }}</td>
+                      <td>{{str_limit($feedback->title,30)}}</td>
+                      <td>{{str_limit($feedback->body,40)}}</td>
+                      <td style="display: inline-block;">
+                        <div style="display: inline-block;">
+                          {!! Form::open(['route' => ['feedbacks.show', $feedback->id], 'method' => 'get']) !!}
+                            <button type="submit" class="btn btn-primary btn-xs"><i class="fa fa-eye" aria-hidden="true"></i></button>
+                          {!! Form::close() !!}
+                        </div>
+                        <div style="display: inline-block;">
+                          {!! Form::open(['route' => ['feedbacks.destroy', $feedback->id], 'method' => 'DELETE']) !!}
+                            <button type="submit" class="btn btn-danger btn-xs"><i class='fa fa fa-trash'></i></button>
+                          {!! Form::close() !!}
+                        </div>
+                      </td>
                     </tr>
                     @endforeach
                     @else
                       <tr>
-                        <td colspan="4">There is no worksheet to show.</td>
+                        <td colspan="4">There is no feedback to show.</td>
                       </tr>
                   @endif
                   </tbody>
@@ -65,7 +66,7 @@
                 <div class="mailbox-controls">
                   <!-- Check all button -->
                   <div class="pull-mmiddle" id="pagination">
-                    {{ $worksheets->links() }}
+                    {{ $feedbacks->links() }}
                     <!-- /.btn-group -->
                   </div>
                   <!-- /.pull-right -->

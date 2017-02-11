@@ -84,6 +84,7 @@
                 <li><a href="{{ route('slots.index') }}">Slots</a></li>
                 <li><a href="{{ route('roleplays.index') }}">Roleplays</a></li>
                 <li><a href="{{ route('worksheets.index') }}">Worksheets</a></li>
+                <li><a href="{{ route('worksheets.index') }}">Feedbacks</a></li>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#features">About</a></li>
                 <li><a href="#business">Service</a></li>
