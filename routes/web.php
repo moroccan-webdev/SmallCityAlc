@@ -16,7 +16,14 @@
 //Route::get('/profile', 'UserController@profile');
 //Route::post('/profile', 'UserController@update_avatar');
 Route::resource('/users', 'UserController');
+Route::resource('/slots', 'SlotController');
+Route::resource('/roleplays', 'RoleplayController');
+Route::get('worksheets', ['uses' => 'WorksheetController@index', 'as' => 'worksheets.index']);
+Route::get('worksheets/create', ['uses' => 'WorksheetController@create', 'as' => 'worksheets.create']);
+Route::post('worksheets', ['uses' => 'WorksheetController@generate', 'as' => 'worksheets.generate']);
+
 Route::get('getPDF/{id}', ['uses' => 'PdfController@getPDF', 'as' => 'getPDF']);
+Route::get('getRPPDF/{id}', ['uses' => 'PdfController@getRPPDF', 'as' => 'getRPPDF']);
 
 
 

@@ -6,6 +6,7 @@
 <html class="no-js" lang="en"> <!--<![endif]-->
     <head>
         @include('partials.head')
+        @yield('stylesheets')
     </head>
     <body data-spy="scroll" data-target=".navbar-collapse">
         <!-- Preloader -->
@@ -27,5 +28,6 @@
         </div>
 
         @include('partials.scriptssection')
+        @yield('scripts')
     </body>
 </html>

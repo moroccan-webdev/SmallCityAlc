@@ -14,4 +14,14 @@ class Level extends Model
   {
     return $this->hasMany('App\User');
   }
+
+  public function roleplays()
+  {
+    return $this->hasMany('App\Roleplay');
+  }
+
+  public function worksheets()
+  {
+    return $this->hasMany('App\Worksheet');
+  }
 }

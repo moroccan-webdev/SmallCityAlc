@@ -15,10 +15,14 @@ class CreateRoleplaysTable extends Migration
     {
         Schema::create('roleplays', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('level_id')->unsigned()->nullable();
             $table->string('name');
             $table->string('city');
+            $table->text('body');
             $table->string('center');
             $table->timestamps();
+
+            $table->foreign('level_id')->references('id')->on('levels')->onDelete('cascade');
         });
     }
 

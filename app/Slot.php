@@ -7,11 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 class Slot extends Model
 {
   protected $fillable = [
-      'from','to'
+      'daterange',
   ];
 
-  public function roleplays()
+  public function worksheets()
   {
-      return $this->belongsToMany('App\Roleplay');
+    return $this->hasMany('App\Worksheet');
   }
+
 }

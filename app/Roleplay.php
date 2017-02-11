@@ -7,21 +7,21 @@ use Illuminate\Database\Eloquent\Model;
 class Roleplay extends Model
 {
   protected $fillable = [
-      'name','city','center',
+      'name','city','center','level_id','body'
   ];
-
-  public function comments()
-  {
-    return $this->hasMany('App\Comment');
-  }
 
   public function users()
   {
       return $this->belongsToMany('App\User');
   }
 
-  public function slots()
+  public function level()
   {
-      return $this->belongsToMany('App\Slot');
+    return $this->belongsTo('App\Level');
+  }
+
+  public function worksheets()
+  {
+      return $this->belongsToMany('App\Worksheet');
   }
 }

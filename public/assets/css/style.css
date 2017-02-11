@@ -1355,6 +1355,16 @@ work Section style
   border: 1px solid #c6c6c6;
   box-shadow: 2px 2px 5px rgba(0,0,0,.3);
 }
+#blockonebody {
+  font-size: 11px;
+  font-family: Comic Sans MS;
+  margin: 10px;
+  padding: 5px;
+  background-color: #f0f0f0;
+  border-radius: 2%;
+  border: 1px solid #c6c6c6;
+  box-shadow: 2px 2px 5px rgba(0,0,0,.3);
+}
 
 #details {
   margin-left: 19.666667%;

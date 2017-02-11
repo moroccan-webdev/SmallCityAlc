@@ -81,6 +81,9 @@
         <div class="collapse navbar-collapse" id="navbar-menu">
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="{{ route('users.index') }}">Users</a></li>
+                <li><a href="{{ route('slots.index') }}">Slots</a></li>
+                <li><a href="{{ route('roleplays.index') }}">Roleplays</a></li>
+                <li><a href="{{ route('worksheets.index') }}">Worksheets</a></li>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#features">About</a></li>
                 <li><a href="#business">Service</a></li>
