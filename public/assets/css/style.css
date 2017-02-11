@@ -1424,3 +1424,25 @@ work Section style
   border-radius: 50%;
   border-color: #64C5B1;
 }
+
+#smallcityplan{
+  background-image: url("/images/background.png");
+  width: 100%;
+  height: 500px;
+  /*height: 600;*/
+}
+#imagediv{
+  border: 1px solid red;
+  height:33.33333%;
+}
+#div1{
+  border: 1px solid red;
+  height:33.33333%;
+}
+#div2{
+  /*border: 1px solid red;*/
+  height:99%;
+  width: 100%;
+  padding: 2px;
+  background: rgba(76, 175, 80, 0.5);
+}

@@ -42,7 +42,7 @@ class FeedbackController extends Controller
       $this->validate($request, array(
       'title'     => 'Required|min:4|max:255',
       'body'      => 'Required|min:3',
-    ));
+      ));
     //save the data to the database
       $feedback= new Feedback;
       $user = Auth::user();

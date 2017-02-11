@@ -88,7 +88,7 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#features">About</a></li>
                 <li><a href="#business">Service</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="{{ route('contacts.create') }}">Contact</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div>
