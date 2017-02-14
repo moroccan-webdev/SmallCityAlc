@@ -1,5 +1,9 @@
 @extends('partials.master')
 
+@section('title')
+All Worksheets
+@endsection
+
 @section('content')
 <div class="container">
   <div class="col-md-12 col-sm-12 col-xs-12">
@@ -7,8 +11,8 @@
         <div class="main_test fix">
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="head_title text-center fix">
-                    <h2 class="text-uppercase">Users</h2>
-                    <h5>All users are listed in the following div</h5>
+                    <h2 class="text-uppercase">Worksheets</h2>
+                    <h5>All Teacher worksheets are listed in the following panel</h5>
                 </div>
                 <div class="col-md-2">
                   {!! Form::open(['route' => ['worksheets.create'], 'method' => 'get']) !!}
@@ -31,6 +35,7 @@
                 </div>
 
             </div>
+
             <div class="col-md-12 col-sm-12 col-xs-12">
               <table class="table panel panel-default">
                   <thead class="panel-heading">
@@ -71,6 +76,7 @@
                   <!-- /.pull-right -->
                 </div>
               </div>
+
         </div>
         </div>
       </div>

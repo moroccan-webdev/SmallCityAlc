@@ -1,13 +1,17 @@
 @extends('partials.master')
 
+@section('title')
+Download Worksheet
+@endsection
+
 @section('content')
 <div class="container">
     <div class="row">
         <div class="main_test fix">
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="head_title text-center fix">
-                    <h2 class="text-uppercase">student</h2>
-                    <h5>Fill the following form in order to add a new user to the database</h5>
+                    <h2 class="text-uppercase">Page Download</h2>
+                    <h5>Download your file from the download button and leave a feedback if you want to !</h5>
                 </div>
                 @if (count($errors) > 0)
                   <div class="alert alert-danger" role="alert">

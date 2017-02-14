@@ -1,13 +1,17 @@
 @extends('partials.master')
 
+@section('title')
+Create Worksheet
+@endsection
+
 @section('content')
 <div class="container">
     <div class="row">
         <div class="main_test fix">
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="head_title text-center fix">
-                    <h2 class="text-uppercase">student</h2>
-                    <h5>Fill the following form in order to add a new user to the database</h5>
+                    <h2 class="text-uppercase">Worksheets Creation</h2>
+                    <h5>Fill the following form in order to get the desired worksheets</h5>
                 </div>
                 @if (count($errors) > 0)
                   <div class="alert alert-danger" role="alert">
@@ -24,7 +28,7 @@
             </div>
             <div class="col-md-10 col-md-offset-1">
               <div class="panel panel-default">
-              <div class="panel-heading">Create Student</div>
+              <div class="panel-heading">Worksheets Creation</div>
               {!! Form::open(['method' => 'Post', 'action' => 'WorksheetController@generate']) !!}
                   <div class="form-group">
                       {!! form::select('level_id',[''=>'Choose Level']+$levels, null,['class'=>'form-control'])!!}
@@ -39,9 +43,9 @@
                     {!! form::text('room', null,['class'=>'form-control','placeholder'=>'Your Room Name  For Example : A1'])!!}
                   </div>
                   <div class="form-group">
-                    {!! form::submit('Create Worksheet', ['class'=>'btn btn-primary'])!!}
+                    {!! form::submit('Create Worksheets', ['class'=>'btn btn-primary'])!!}
                   </div>
-                {!! Form::close() !!}
+              {!! Form::close() !!}
               </div>
             </div>
         </div>

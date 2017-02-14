@@ -5,14 +5,14 @@
                 <div class="col-md-6">
                     <div class="navbar-callus text-left sm-text-center">
                         <ul class="list-inline">
-                            <li><a href=""><i class="fa fa-phone"></i> Call us: 1234 5678 90</a></li>
-                            <li><a href=""><i class="fa fa-envelope-o"></i> Contact us: Mssassi@email.com</a></li>
+                            <li><a href=""><i class="fa fa-phone"></i> Call us: +(212) 673 252 728</a></li>
+                            <li><a href=""><i class="fa fa-envelope-o"></i> Contact us: mohammed.msassi@gmail.com</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="navbar-socail text-right sm-text-center">
-                        <ul class="list-inline">
+                        <ul class="list-inline" >
                             <li><a href=""><i class="fa fa-facebook"></i></a></li>
                             <!--<li><a href=""><i class="fa fa-twitter"></i></a></li>
                             <li><a href=""><i class="fa fa-linkedin"></i></a></li>
@@ -33,6 +33,11 @@
                               {!! Form::open(['route' => 'logout', 'method' => 'POST']) !!}
                                 <button type="submit" class="btn btn-primary btn-xs"><i class="fa fa-sign-out" aria-hidden="true"></i></button>
                               {!! Form::close() !!}
+                            </li>
+                            <li>
+                            <div>
+                              <img src="/images/{{Auth::user()->avatar}}" alt=""  id="avatar">
+                            </div>
                             </li>
                             @endif
                         </ul>
@@ -78,17 +83,77 @@
         <!-- End Header Navigation -->
 
         <!-- navbar menu -->
+
         <div class="collapse navbar-collapse" id="navbar-menu">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="{{ route('users.index') }}">Users</a></li>
-                <li><a href="{{ route('slots.index') }}">Slots</a></li>
-                <li><a href="{{ route('roleplays.index') }}">Roleplays</a></li>
-                <li><a href="{{ route('worksheets.index') }}">Worksheets</a></li>
-                <li><a href="{{ route('worksheets.index') }}">Feedbacks</a></li>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#features">About</a></li>
-                <li><a href="#business">Service</a></li>
-                <li><a href="{{ route('contacts.create') }}">Contact</a></li>
+              @if (Auth::guest() || Auth::user()->isTeacher() || Auth::user()->isStudent())
+              <li id="headlinks" class="{{ Request::is('/') ? "active":""}}"><a href="{{ url('/') }}">Home</a></li>
+              <li><a href="#features">About</a></li>
+              <li><a href="#business">Service</a></li>
+              <li id="headlinks" class="{{ Request::is('contacts/create') ? "active":""}}"><a href="{{ url('contacts/create') }}">Contact Us</a></li>
+              <li id="headlinks" class="{{ Request::is('plan') ? "active":""}}"><a href="{{ url('/plan') }}">Plan</a></li>
+              @elseif (Auth::user()->isAdmin())
+
+                <li class="dropdown">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">Users
+                    <span class=""></span></a>
+                       <ul class="dropdown-menu">
+                         <li ><a href="{{ route('users.index') }}">All Users</a></li>
+                         <li ><a href="{{ route('users.create') }}">Create User</a></li>
+                       </ul>
+                </li>
+
+                <li class="dropdown">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">Slots
+                    <span class=""></span></a>
+                       <ul class="dropdown-menu">
+                         <li><a href="{{ route('slots.index') }}">All Slots</a></li>
+                         <li><a href="{{ route('slots.create') }}">Create Slot</a></li>
+                       </ul>
+                </li>
+
+                <li class="dropdown">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">Roleplays
+                    <span class=""></span></a>
+                       <ul class="dropdown-menu">
+                         <li><a href="{{ route('roleplays.index') }}">All Roleplays</a></li>
+                         <li><a href="{{ route('roleplays.create') }}">Create Roleplay</a></li>
+                       </ul>
+                </li>
+
+                <li class="dropdown">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">Worksheets
+                    <span class=""></span></a>
+                       <ul class="dropdown-menu">
+                         <li><a href="{{ route('worksheets.index') }}">All Worksheets</a></li>
+                         <li><a href="{{ route('worksheets.create') }}">Create Worksheet</a></li>
+                       </ul>
+                </li>
+
+                <li class="dropdown">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">Feedbacks
+                    <span class=""></span></a>
+                       <ul class="dropdown-menu">
+                         <li><a href="{{ route('feedbacks.index') }}">All Feedbacks</a></li>
+                         <li><a href="{{ route('feedbacks.create') }}">Create Feedback</a></li>
+                       </ul>
+                </li>
+
+                <li class="dropdown">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">Contacts
+                    <span class=""></span></a>
+                       <ul class="dropdown-menu">
+                         <li><a href="{{ route('contacts.index') }}">All Contacts</a></li>
+                         <li><a href="{{ route('contacts.create') }}">Create Contact</a></li>
+                       </ul>
+                </li>
+
+                <li id="headlinks" class="{{ Request::is('/') ? "active":""}}"><a href="{{ url('/') }}">Home</a></li>
+                <li id="headlinks"><a href="">Service</a></li>
+                <li id="headlinks" class="{{ Request::is('contacts/create') ? "active":""}}"><a href="{{ url('contacts/create') }}">Contact Us</a></li>
+                <li id="headlinks" class="{{ Request::is('plan') ? "active":""}}"><a href="{{ url('/plan') }}">Plan</a></li>
+                @endif
+
             </ul>
         </div><!-- /.navbar-collapse -->
     </div>

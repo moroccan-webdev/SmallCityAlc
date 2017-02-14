@@ -1,5 +1,9 @@
 @extends('partials.master')
 
+@section('title')
+Send Request
+@endsection
+
 @section('content')
 <div class="container">
     <div class="row">
@@ -7,7 +11,7 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="head_title text-center fix">
                     <h2 class="text-uppercase">Contact Us</h2>
-                    <h5>Fill the following form in order to add a new user to the database</h5>
+                    <h5>Fill the following form and click the button bellow to send the message to the administrator</h5>
                 </div>
                 @if (count($errors) > 0)
                   <div class="alert alert-danger" role="alert">

@@ -15,8 +15,8 @@
                             </div>
 
                             <div class="home_btns m-top-40">
-                                <a href="" class="btn btn-primary m-top-20">Buy Now</a>
-                                <a href="" class="btn btn-default m-top-20">Take a Tour</a>
+                                <a href="" class="m-top-20"></a>
+                                <a href="" class="m-top-20"></a>
                             </div>
                         </div><!-- End off slid item -->
                         <div class="slid_item">
@@ -27,8 +27,8 @@
                             </div>
 
                             <div class="home_btns m-top-40">
-                                <a href="" class="btn btn-primary m-top-20">Buy Now</a>
-                                <a href="" class="btn btn-default m-top-20">Take a Tour</a>
+                                <a href="" class="m-top-20"></a>
+                                <a href="" class="m-top-20"></a>
                             </div>
                         </div><!-- End off slid item -->
                         <div class="slid_item">
@@ -39,8 +39,8 @@
                             </div>
 
                             <div class="home_btns m-top-40">
-                                <a href="" class="btn btn-primary m-top-20">Buy Now</a>
-                                <a href="" class="btn btn-default m-top-20">Take a Tour</a>
+                                <a href="" class="m-top-20"></a>
+                                <a href="" class="m-top-20"></a>
                             </div>
                         </div><!-- End off slid item -->
                     </div>

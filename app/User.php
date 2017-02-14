@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','level_id', 'role_id', 'class','phone', 'avatar'
+        'name', 'email', 'password','level_id', 'role_id', 'class','phone', 'avatar',
     ];
 
     /**
@@ -44,5 +44,17 @@ class User extends Authenticatable
     public function feedbacks()
     {
       return $this->hasMany('App\Feedback');
+    }
+
+    public function isAdmin() {
+        return $this->role->role == 'Administrator';
+    }
+
+    public function isTeacher() {
+        return $this->role->role == 'Teacher';
+    }
+
+    public function isStudent() {
+        return $this->role->role == 'Student';
     }
 }

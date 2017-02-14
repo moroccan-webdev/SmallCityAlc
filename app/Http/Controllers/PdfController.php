@@ -9,6 +9,11 @@ use PDF;
 
 class PdfController extends Controller
 {
+  public function __construct()
+  {
+      $this->middleware('admin');
+  }
+
   public function getPDF($id){
     //retreive the actual message using the id
       $user = User::find($id);

@@ -11,6 +11,12 @@ use Auth;
 
 class RoleplayController extends Controller
 {
+    public function __construct()
+    {
+        //$this->middleware('admin');
+        //$this->middleware('teacher')->only(['index', 'show']);
+
+    }
     /**
      * Display a listing of the resource.
      *
@@ -18,8 +24,9 @@ class RoleplayController extends Controller
      */
     public function index()
     {
+      $this->authorize('view', Roleplay::class);
       $roleplays = Roleplay::orderBy('id','desc')->paginate(10);
-      return view('roleplays.index',compact('roleplays'));
+      return view('roleplays.index', compact('roleplays'));
     }
 
     /**
@@ -29,6 +36,7 @@ class RoleplayController extends Controller
      */
     public function create()
     {
+      $this->authorize('create', Roleplay::class);
       $levels = Level::pluck('level','id')->all();
       //$levels = Level::lists('title', 'id');
       //$levelsCollect = collect($levels);
@@ -72,6 +80,7 @@ class RoleplayController extends Controller
      */
     public function show($id)
     {
+      $this->authorize('view', Roleplay::class);
       //find the desired RP
       $roleplay = Roleplay::find($id);
       // get previous RP id
@@ -90,6 +99,7 @@ class RoleplayController extends Controller
      */
     public function edit($id)
     {
+      $this->authorize('update', Roleplay::class);
       $levels = Level::pluck('level','id')->all();
       $roleplay = Roleplay::findOrFail($id);
       return view('roleplays.edit', compact('roleplay', 'levels'));
@@ -104,6 +114,8 @@ class RoleplayController extends Controller
      */
     public function update(Request $request, $id)
     {
+      //$roleplay = Roleplay::findOrFail($id);
+
       $this->validate($request, array(
       'name'      => 'Required|min:4|max:255',
       'city'      => 'Required|min:3|max:255',
@@ -130,9 +142,11 @@ class RoleplayController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Roleplay $roleplay)
     {
-      $roleplay = Roleplay::find($id);
+      //dd($roleplay);
+      $this->authorize('delete', $roleplay);
+      //$roleplay = Roleplay::findOrFail($id);
       $roleplay->delete();
       Session::flash('success', 'The roleplay was successfully deleted from the database !');
       return redirect()->route('roleplays.index');

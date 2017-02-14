@@ -1,13 +1,17 @@
 @extends('partials.master')
 
+@section('title')
+Edit Roleplay
+@endsection
+
 @section('content')
 <div class="container">
     <div class="row">
         <div class="main_test fix">
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="head_title text-center fix">
-                    <h2 class="text-uppercase">Create Roleplay</h2>
-                    <h5>Fill the following form in order to add a new user to the database</h5>
+                    <h2 class="text-uppercase">Edit Roleplay</h2>
+                    <h5>Fill in the following field in order to edit the roleplay</h5>
                 </div>
                 @if (count($errors) > 0)
                   <div class="alert alert-danger" role="alert">
@@ -24,7 +28,7 @@
             </div>
             <div class="col-md-10 col-md-offset-1">
               <div class="panel panel-default">
-              <div class="panel-heading">Create Roleplay</div>
+              <div class="panel-heading">Edit Roleplay</div>
               {!! Form::model($roleplay,['method' => 'PATCH', 'action' => ['RoleplayController@update', $roleplay->id],'files'=> true]) !!}
               <div class="form-group">
                 {!! form::text('name', null,['class'=>'form-control'])!!}

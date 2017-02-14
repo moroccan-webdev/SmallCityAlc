@@ -1,5 +1,9 @@
 @extends('partials.master')
 
+@section('title')
+All Slots
+@endsection
+
 @section('content')
 <div class="container">
   <div class="col-md-12 col-sm-12 col-xs-12">
@@ -8,7 +12,7 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="head_title text-center fix">
                     <h2 class="text-uppercase">Slots</h2>
-                    <h5>All slots are listed in the following div</h5>
+                    <h5>All slots are listed in the following panel</h5>
                 </div>
                 <div class="col-md-2">
                   {!! Form::open(['route' => ['slots.create'], 'method' => 'get']) !!}
@@ -36,6 +40,7 @@
                   <thead class="panel-heading">
                     <td>Slot Id</td>
                     <td>Date Range</td>
+                    <td>Created At</td>
                     <td>Actions</td>
                   </thead>
                   <tbody>
@@ -44,6 +49,7 @@
                     <tr>
                       <td>{{ $slot->id }}</td>
                       <td>{{ $slot->daterange }}</td>
+                      <td>{{ $slot->created_at->diffForHumans() }}</td>
                       <td style="display: inline-block;">
                         <div style="display: inline-block;">
                           {!! Form::open(['route' => ['slots.show', $slot->id], 'method' => 'get']) !!}

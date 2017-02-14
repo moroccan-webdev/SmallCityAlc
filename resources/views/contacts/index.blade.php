@@ -1,5 +1,9 @@
 @extends('partials.master')
 
+@section('title')
+All Requests
+@endsection
+
 @section('content')
 <div class="container">
   <div class="col-md-12 col-sm-12 col-xs-12">
@@ -7,8 +11,8 @@
         <div class="main_test fix">
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="head_title text-center fix">
-                    <h2 class="text-uppercase">Users</h2>
-                    <h5>All users are listed in the following div</h5>
+                    <h2 class="text-uppercase">Clients Messages</h2>
+                    <h5>All users messages are listed bellow note that you have received them in your mail box as well.</h5>
                 </div>
                 <div class="col-md-12">
                   @if (count($errors) > 0)

@@ -10,6 +10,13 @@ use Auth;
 
 class FeedbackController extends Controller
 {
+    public function __construct()
+    {
+
+        //$this->middleware('teacher')->only(['create', 'store']);
+        //$this->middleware('admin');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -17,6 +24,7 @@ class FeedbackController extends Controller
      */
     public function index()
     {
+        $this->authorize('view', Feedback::class);
         $feedbacks = Feedback::orderBy('id','desc')->paginate(10);
         return view('feedbacks.index',compact('feedbacks'));
     }
@@ -28,6 +36,7 @@ class FeedbackController extends Controller
      */
     public function create()
     {
+        $this->authorize('create', Feedback::class);
         return view('feedbacks.create');
     }
 
@@ -52,7 +61,7 @@ class FeedbackController extends Controller
       $feedback->save();
       //set flash data with success message
       Session::flash('success', 'Your feedback was successfully sent to the administrator !');
-      return redirect()->route('feedbacks.index');
+      return redirect('/');
     }
 
     /**
@@ -63,6 +72,7 @@ class FeedbackController extends Controller
      */
     public function show($id)
     {
+        $this->authorize('view', Feedback::class);
         //find the desired FB
         $feedback = Feedback::find($id);
         // get previous FB id
@@ -80,9 +90,10 @@ class FeedbackController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Feedback $feedback)
     {
-        $feedback = Feedback::find($id);
+        $this->authorize('delete', $feedback);
+        //$feedback = Feedback::find($id);
         $feedback->delete();
         Session::flash('success', 'The feedback was successfully deleted !');
         return redirect()->route('feedbacks.index');

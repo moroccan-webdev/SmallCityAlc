@@ -1,12 +1,16 @@
 @extends('partials.master')
 
+@section('title')
+View Slot
+@endsection
+
 @section('content')
 <div class="container">
     <div class="row">
           <div class="col-md-12 col-sm-12 col-xs-12">
               <div class="head_title text-center fix">
                   <h2 class="text-uppercase">Slots</h2>
-                  <h5>You can switch between all slots using left and right arrows</h5>
+                  <h5>You can switch between Slots using left and right arrows</h5>
               </div>
               @if (count($errors) > 0)
                 <div class="alert alert-danger" role="alert">
@@ -33,10 +37,10 @@
                   </div>
                   <div class="col-md-10">
                     <div class="col-md-12" id="blockone">
-                        Created At : {{$slot->created_at}}
+                        Created At : {{$slot->created_at->diffForHumans()}}
                     </div>
                     <div class="col-md-12" id="blockone">
-                        Updated At : {{$slot->updated_at}}
+                        Updated At : {{$slot->updated_at->diffForHumans()}}
                     </div>
                   </div>
                   <div class="col-md-1">

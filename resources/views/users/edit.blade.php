@@ -1,13 +1,17 @@
 @extends('partials.master')
 
+@section('title')
+Edit User
+@endsection
+
 @section('content')
 <div class="container">
     <div class="row">
         <div class="main_test fix">
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="head_title text-center fix">
-                    <h2 class="text-uppercase">student</h2>
-                    <h5>Fill the following form in order to add a new user to the database</h5>
+                    <h2 class="text-uppercase">Edit User</h2>
+                    <h5>Fill in the following form in order to edit the user</h5>
                 </div>
                 @if (count($errors) > 0)
                   <div class="alert alert-danger" role="alert">
@@ -24,7 +28,7 @@
             </div>
             <div class="col-md-10 col-md-offset-1">
               <div class="panel panel-default">
-              <div class="panel-heading">Create Student</div>
+              <div class="panel-heading">Edit User</div>
               {!! Form::model($user,['method' => 'PATCH', 'action' => ['UserController@update', $user->id],'files'=> true]) !!}
                   <div class="form-group">
                     {!! form::text('name', null,['class'=>'form-control','placeholder'=>'Name'])!!}

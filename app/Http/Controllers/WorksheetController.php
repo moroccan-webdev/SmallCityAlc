@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use PDF;
-use Response;
 use Illuminate\Http\Request;
 use App\Worksheet;
 use App\Roleplay;
 use App\Level;
 use App\Slot;
+use Response;
 use App\User;
 use Session;
 use Auth;
 use File;
+use PDF;
 use App;
 //use PDF;
 
@@ -21,22 +21,22 @@ class WorksheetController extends Controller
 {
 
   public function __construct()
-    {
-        $this->middleware('auth');
-
-        //$this->middleware('log')->only('index');
-
-        //$this->middleware('subscribed')->except('store');
-    }
-
-    public function index()
   {
+      //$this->middleware('admin');
+      //$this->middleware('teacher', ['except' => 'index']);
+
+  }
+
+  public function index()
+  {
+    $this->authorize('view', Worksheet::class);
     $worksheets = Worksheet::orderBy('id','desc')->paginate(10);
     return view('worksheets.index',compact('worksheets'));
   }
 
   public function create()
   {
+      $this->authorize('create', Worksheet::class);
       $levels = Level::pluck('level','id')->all();
       $slots = Slot::pluck('daterange','id')->all();
       return view('worksheets.create',compact('levels','slots'));
@@ -115,7 +115,7 @@ class WorksheetController extends Controller
           return "there are not enought roleplays";
         }
 
-          //dd($array);
+        //dd($array);
         $pdf = PDF::loadView('pdfs.result', [
                               'array' => $array,
                               'random_roleplays' => $random_roleplays,

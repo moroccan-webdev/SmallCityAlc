@@ -1,12 +1,16 @@
 @extends('partials.master')
 
+@section('title')
+View Roleplay
+@endsection
+
 @section('content')
 <div class="container">
     <div class="row">
           <div class="col-md-12 col-sm-12 col-xs-12">
               <div class="head_title text-center fix">
-                  <h2 class="text-uppercase">Users</h2>
-                  <h5>All users are shown in the following div</h5>
+                  <h2 class="text-uppercase">Roleplay</h2>
+                  <h5>You can switch between roleplays using the left and right circled arrows</h5>
               </div>
               @if (count($errors) > 0)
                 <div class="alert alert-danger" role="alert">
@@ -47,7 +51,7 @@
                           Level : {{$roleplay->level->level}}
                       </div>
                       <div class="col-sm-10 col-sm-offset-1" id="blockone">
-                          Created At : {{$roleplay->create_at}}
+                          Created At : {{$roleplay->created_at ? $roleplay->created_at->diffForHumans(): "no data"}}
                       </div>
                   </div>
                   <div class="col-md-1">

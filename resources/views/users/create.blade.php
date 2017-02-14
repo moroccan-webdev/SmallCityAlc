@@ -1,13 +1,17 @@
 @extends('partials.master')
 
+@section('title')
+Create User
+@endsection
+
 @section('content')
 <div class="container">
     <div class="row">
         <div class="main_test fix">
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="head_title text-center fix">
-                    <h2 class="text-uppercase">student</h2>
-                    <h5>Fill the following form in order to add a new user to the database</h5>
+                    <h2 class="text-uppercase">Create User</h2>
+                    <h5>Fill the following form in order to add a new user</h5>
                 </div>
                 @if (count($errors) > 0)
                   <div class="alert alert-danger" role="alert">
@@ -24,8 +28,8 @@
             </div>
             <div class="col-md-10 col-md-offset-1">
               <div class="panel panel-default">
-              <div class="panel-heading">Create Student</div>
-              {!! Form::open(['method' => 'Post', 'action' => 'ShowerController@store', 'files'=> true]) !!}
+              <div class="panel-heading">Create User</div>
+              {!! Form::open(['method' => 'Post', 'action' => 'UserController@store', 'files'=> true]) !!}
                   <div class="form-group">
                     {!! form::text('name', null,['class'=>'form-control','placeholder'=>'Name'])!!}
                   </div>
@@ -33,26 +37,31 @@
                     {!! form::text('email', null,['class'=>'form-control','placeholder'=>'Email'])!!}
                   </div>
                   <div class="form-group">
-
-                      {!! form::select('level_id',[''=>'choose category']+$levels, null,['class'=>'form-control'])!!}
+                    {!! form::text('password', null,['class'=>'form-control','placeholder'=>'Password *********'])!!}
+                  </div>
+                  <div class="form-group">
+                      {!! form::select('level_id',[''=>'Choose Level']+$levels, null,['class'=>'form-control'])!!}
+                  </div>
+                  <div class="form-group">
+                      {!! form::select('role_id',[''=>'Choose Role']+$roles, null,['class'=>'form-control'])!!}
                   </div>
                   <div class="form-group">
                     {!! form::text('stars', null,['class'=>'form-control','placeholder'=>'Stars'])!!}
                   </div>
                   <div class="form-group">
-                    {!! form::text('class', null,['class'=>'form-control','placeholder'=>'Class'])!!}
+                    {!! form::text('class', null,['class'=>'form-control','placeholder'=>'Room'])!!}
                   </div>
                   <div class="form-group">
-                    {!! form::text('phone', null,['class'=>'form-control','placeholder'=>'Phone'])!!}
+                    {!! form::text('phone', null,['class'=>'form-control','placeholder'=>'Phone : 0623121212'])!!}
                   </div>
                   <div class="form-group">
                     {!! form::text('teacher', null,['class'=>'form-control','placeholder'=>'Teacher'])!!}
                   </div>
                   <div class="form-group">
-                    {!! form::file('image',['class'=>'form-control','placeholder'=>'image'])!!}
+                    {!! form::file('avatar',['class'=>'form-control','placeholder'=>'image'])!!}
                   </div>
                   <div class="form-group">
-                    {!! form::submit('Create Student', ['class'=>'btn btn-primary'])!!}
+                    {!! form::submit('Create User', ['class'=>'btn btn-primary'])!!}
                   </div>
                 {!! Form::close() !!}
               </div>

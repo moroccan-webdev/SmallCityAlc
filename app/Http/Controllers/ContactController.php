@@ -11,6 +11,11 @@ use Auth;
 
 class ContactController extends Controller
 {
+    public function __construct()
+    {
+        //$this->middleware('admin')/*->only(['index', 'show','destroy'])*/;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -18,6 +23,7 @@ class ContactController extends Controller
      */
     public function index()
     {
+      $this->authorize('view', Contact::class);
       $contacts = Contact::orderBy('id','desc')->paginate(10);
       return view('contacts.index',compact('contacts'));
     }
@@ -68,7 +74,7 @@ class ContactController extends Controller
   		});
       //set flash data with success message
       Session::flash('success', 'Your message sent !');
-      return redirect()->route('contacts.index');
+      return redirect('/');
     }
 
     /**
@@ -79,6 +85,7 @@ class ContactController extends Controller
      */
     public function show($id)
     {
+      $this->authorize('view', Contact::class);
       //find the desired FB
       $contact = Contact::find($id);
       // get previous FB id
@@ -96,9 +103,10 @@ class ContactController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function destroy($id)
+    public function destroy(Contact $contact)
     {
-      $contact = Contact::find($id);
+      $this->authorize('delete', $contact);
+      //$contact = Contact::find($id);
       $contact->delete();
       Session::flash('success', 'The message was successfully deleted !');
       return redirect()->route('contacts.index');

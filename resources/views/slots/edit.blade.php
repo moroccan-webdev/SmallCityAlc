@@ -1,5 +1,8 @@
 @extends('partials.master')
 
+@section('title')
+Edit Slot
+@endsection
 
 @section('stylesheets')
 {!!Html::style('assets/plugins/daterangepicker/daterangepicker.css')!!}
@@ -12,7 +15,7 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="head_title text-center fix">
                     <h2 class="text-uppercase">Edit Slot</h2>
-                    <h5>Click the following field to change the time slot</h5>
+                    <h5>Fill in the following field in order to edit the slot</h5>
                 </div>
                 @if (count($errors) > 0)
                   <div class="alert alert-danger" role="alert">
@@ -42,7 +45,7 @@
                         <input name="daterange" type="text" class="form-control pull-right" id="reservationtime">
                     </div>
                     <div class="col-md-3 form-group">
-                    {{ Form::submit('Edit Slot',  array('class' => 'btn btn-primary btn-lg btn-block'))}}
+                    {{ Form::submit('Updadte Slot',  array('class' => 'btn btn-primary btn-lg btn-block'))}}
                     </div>
                   </div>
                 {!! Form::close() !!}

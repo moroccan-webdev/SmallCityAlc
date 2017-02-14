@@ -1,5 +1,9 @@
 @extends('partials.master')
 
+@section('title')
+Register
+@endsection
+
 @section('content')
 <div class="container">
   <div class="col-md-12 col-sm-12 col-xs-12">
@@ -8,7 +12,7 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="head_title text-center fix">
                     <h2 class="text-uppercase">Register</h2>
-                    <h5>Fill in the following fields</h5>
+                    <h5>Fill in the following fields to register in the application</h5>
                 </div>
                 <div class="col-md-12">
                     <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">

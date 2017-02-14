@@ -3,4 +3,4 @@
   <h3 style="color:#137CB3;">	{{ $bodyMessage }}</h3>
 </div>
 
-<p>Sent via: {{ $email }}</p>
+  <p>Sent via: {{$email}}</p>

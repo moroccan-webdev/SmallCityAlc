@@ -1,5 +1,7 @@
 @extends('partials.master')
 
+<!-- Downloadable version of styleshee as a view blade -->
+
 @section('content')
 <div class="container">
     <div class="row">

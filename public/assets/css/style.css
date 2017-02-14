@@ -1422,7 +1422,7 @@ work Section style
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  border-color: #64C5B1;
+  border: 1px solid #0AAB8A;
 }
 
 #smallcityplan{
@@ -1439,10 +1439,28 @@ work Section style
   border: 1px solid red;
   height:33.33333%;
 }
-#div2{
+#div{
   /*border: 1px solid red;*/
   height:99%;
   width: 100%;
   padding: 2px;
   background: rgba(76, 175, 80, 0.5);
+}
+
+.dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover
+{
+    text-decoration: underline;
+    background-color: #f5f5f5;
+    border-right: 7px solid #19A985;
+}
+#headlinks>a:focus, #headlinks>a:hover
+{
+    text-decoration: underline;
+    background-color: #f5f5f5;
+    border-bottom: 5px solid #19A985;
+}
+
+ .navbar-right>.active
+{
+  border-bottom: 5px solid #19A985;
 }

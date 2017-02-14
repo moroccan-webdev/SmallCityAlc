@@ -5,7 +5,7 @@
                 Made with
                 <i class="fa fa-heart"></i>
                 by
-                <a target="_blank" href="#">Mohamed Msassi</a>
+                <a target="_blank" href="#">Mohammed Msassi</a>
                 2017. All Rights Reserved
             </p>
         </div>

@@ -1,17 +1,26 @@
-@extends('layouts.app')
+@extends('partials.master')
+
+@section('title')
+Reset Password
+@endsection
 
 @section('content')
 <div class="container">
+  <div class="col-md-12 col-sm-12 col-xs-12">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Reset Password</div>
-                <div class="panel-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+        <div class="main_test fix">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="head_title text-center fix">
+                    <h2 class="text-uppercase">Reset Password</h2>
+                    <h5>Fill in the following fields in order to reset your password and check your email box after the submit</h5>
+                </div>
+                <div class="col-md-8 col-md-offset-2">
+
+                  @if (session('status'))
+                      <div class="alert alert-success">
+                          {{ session('status') }}
+                      </div>
+                  @endif
 
                     <form class="form-horizontal" role="form" method="POST" action="{{ route('password.email') }}">
                         {{ csrf_field() }}
@@ -42,5 +51,6 @@
             </div>
         </div>
     </div>
+</div>
 </div>
 @endsection

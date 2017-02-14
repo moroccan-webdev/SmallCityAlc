@@ -1,5 +1,9 @@
 @extends('partials.master')
 
+@section('title')
+Create Slot
+@endsection
+
 @section('stylesheets')
 {!!Html::style('assets/plugins/daterangepicker/daterangepicker.css')!!}
 @endsection
@@ -10,8 +14,8 @@
         <div class="main_test fix">
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="head_title text-center fix">
-                    <h2 class="text-uppercase">student</h2>
-                    <h5>Fill the following form in order to add a new user to the database</h5>
+                    <h2 class="text-uppercase">Create Slot</h2>
+                    <h5>Fill in the following form in order to add a new time slot</h5>
                 </div>
                 @if (count($errors) > 0)
                   <div class="alert alert-danger" role="alert">
@@ -28,23 +32,20 @@
             </div>
             <div class="col-md-10 col-md-offset-1">
               <div class="panel panel-default">
-              <div class="panel-heading">Create Student</div>
-              {!! Form::open(['method' => 'Post', 'action' => 'SlotController@store', 'files'=> true]) !!}
+              <div class="panel-heading">Create Slot</div>
+              {!! Form::open(['method' => 'Post', 'action' => 'SlotController@store']) !!}
               <!-- Date and time range -->
-              <div class="row">
-                <div class="col-md-2">
-                  {{ Form::label('slug','Slug: ')}}
+              <div class="row" style="display: inline-block;">
+                <div class="col-md-3" style="margin:25px;">
+                  {{ Form::submit('Create Slot',  array('class' => 'btn btn-primary btn-lg btn-block'))}}
                 </div>
-                  <div class="input-group col-md-9">
-                    <div class="input-group-addon">
+                  <div class="input-group col-md-7" style="margin:20px;">
+                    <div class="input-group-addon" >
                       <i class="fa fa-clock-o"></i>
                     </div>
                     <input name="daterange" type="text" class="form-control pull-right" id="reservationtime">
                   </div>
-                <!-- /.input group -->
-              </div>
-              <div class="col-md-3">
-                {{ Form::submit('Create Slot',  array('class' => 'btn btn-primary btn-lg btn-block'))}}
+
               </div>
                   {!! Form::close() !!}
               </div>
@@ -58,7 +59,7 @@
 
 @section('scripts')
 <!-- jQuery 2.2.3 -->
-{!!Html::script('assets/plugins/jQuery/jquery-2.2.3.min.js')!!}
+
 <!-- date-range-picker -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
 {!!Html::script('assets/plugins/daterangepicker/daterangepicker.js')!!}

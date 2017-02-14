@@ -1,5 +1,9 @@
 @extends('partials.master')
 
+@section('title')
+All Users
+@endsection
+
 @section('content')
 <div class="container">
   <div class="col-md-12 col-sm-12 col-xs-12">
@@ -8,7 +12,7 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="head_title text-center fix">
                     <h2 class="text-uppercase">Users</h2>
-                    <h5>All users are listed in the following div</h5>
+                    <h5>All users are listed in the following panel</h5>
                 </div>
                 <div class="col-md-12">
                   @if (count($errors) > 0)
@@ -44,7 +48,7 @@
                     <tr>
                       <td>
                         <div>
-                        <img src="/images/{{$user->avatar }}" alt=""  id="avatar">
+                        <img src="/images/{{$user->avatar}}" alt=""  id="avatar">
                       </div>
                       </td>
                       <td>{{ $user->name }}</td>

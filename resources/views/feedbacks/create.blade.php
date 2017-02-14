@@ -1,5 +1,9 @@
 @extends('partials.master')
 
+@section('title')
+Create Feedback
+@endsection
+
 @section('content')
 <div class="container">
     <div class="row">
@@ -7,8 +11,8 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="head_title text-center fix">
                     <h2 class="text-uppercase">Create Feedback</h2>
-                    <h5>Fill the following form in order to send your
-                      feedback about this project to the administrator</h5>
+                    <h5>Fill in the following form in order to send your
+                      feedback to the administrator</h5>
                 </div>
                 @if (count($errors) > 0)
                   <div class="alert alert-danger" role="alert">
