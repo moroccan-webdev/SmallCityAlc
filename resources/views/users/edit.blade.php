@@ -37,15 +37,7 @@ Edit User
                     {!! form::text('email', null,['class'=>'form-control','placeholder'=>'Email'])!!}
                   </div>
                   <div class="form-group">
-
-                      {!! form::select('level_id',[''=>'choose category']+$levels, null,['class'=>'form-control'])!!}
-                  </div>
-                  <div class="form-group">
-
                       {!! form::select('role_id',[''=>'choose role']+$roles, null,['class'=>'form-control'])!!}
-                  </div>
-                  <div class="form-group">
-                    {!! form::text('class', null,['class'=>'form-control','placeholder'=>'Class'])!!}
                   </div>
                   <div class="form-group">
                     {!! form::text('phone', null,['class'=>'form-control','placeholder'=>'Phone'])!!}

@@ -45,7 +45,7 @@
           <tbody>
             <tr>
               <td class="no">{{$roleplay->id}}</td>
-              <td class="desc"><h3>{{$roleplay->name}}</h3>{{$roleplay->body}}</td>
+              <td class="desc"><h3>{{$roleplay->name}}</h3>{{strip_tags($roleplay->body)}}</td>
               <td class="unit">{{$roleplay->city}}</td>
               <td class="qty">{{$roleplay->center}}</td>
               <td class="unit">{{$roleplay->level->level}}</td>

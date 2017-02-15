@@ -36,11 +36,25 @@ Register
                             <label for="email" class="col-md-3 control-label">E-Mail Address</label>
 
                             <div class="col-md-9">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+                                <input id="email" type="email" class="form-control" name="email" placeholder="youremail@mail.com" value="{{ old('email') }}" required>
 
                                 @if ($errors->has('email'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                            <label for="phone" class="col-md-3 control-label">Phone Number</label>
+
+                            <div class="col-md-9">
+                                <input id="phone" type="text" class="form-control" name="phone" placeholder="0606060606" value="{{ old('email') }}" required>
+
+                                @if ($errors->has('phone'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('phone') }}</strong>
                                     </span>
                                 @endif
                             </div>

@@ -40,22 +40,10 @@ Create User
                     {!! form::text('password', null,['class'=>'form-control','placeholder'=>'Password *********'])!!}
                   </div>
                   <div class="form-group">
-                      {!! form::select('level_id',[''=>'Choose Level']+$levels, null,['class'=>'form-control'])!!}
-                  </div>
-                  <div class="form-group">
                       {!! form::select('role_id',[''=>'Choose Role']+$roles, null,['class'=>'form-control'])!!}
                   </div>
                   <div class="form-group">
-                    {!! form::text('stars', null,['class'=>'form-control','placeholder'=>'Stars'])!!}
-                  </div>
-                  <div class="form-group">
-                    {!! form::text('class', null,['class'=>'form-control','placeholder'=>'Room'])!!}
-                  </div>
-                  <div class="form-group">
                     {!! form::text('phone', null,['class'=>'form-control','placeholder'=>'Phone : 0623121212'])!!}
-                  </div>
-                  <div class="form-group">
-                    {!! form::text('teacher', null,['class'=>'form-control','placeholder'=>'Teacher'])!!}
                   </div>
                   <div class="form-group">
                     {!! form::file('avatar',['class'=>'form-control','placeholder'=>'image'])!!}

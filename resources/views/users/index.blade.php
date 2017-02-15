@@ -36,9 +36,7 @@ All Users
                     <td>Image</td>
                     <td>Name</td>
                     <td>Email</td>
-                    <td>Level</td>
                     <td>Role</td>
-                    <td>Room</td>
                     <td>Phone</td>
                     <td>Actions</td>
                   </thead>
@@ -53,9 +51,7 @@ All Users
                       </td>
                       <td>{{ $user->name }}</td>
                       <td>{{ $user->email }}</td>
-                      <td>{{ $user->level_id }}</td>
                       <td>{{ $user->role->role }}</td>
-                      <td>{{ $user->class }}</td>
                       <td>{{ $user->phone }}</td>
                       <td style="display: inline-block;">
                         <div style="display: inline-block;">

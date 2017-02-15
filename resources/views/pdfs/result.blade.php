@@ -32,7 +32,7 @@
             roleplay: {{$roleplay->name}}
           </div>
           <div id="body">
-            Body : {{$roleplay->body}}
+            Body : {!! $roleplay->body !!}
           </div>
         </div>
         @endforeach

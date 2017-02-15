@@ -34,7 +34,7 @@
                         Roleplay: {{$roleplay->name}}
                     </div>
                     <div class="col-sm-12" id="blockonebody">
-                        Body : {{$roleplay->body}}
+                        Body : {{strip_tags($roleplay->body)}}
                     </div>
                   </div>
                   <div class="col-md-4">

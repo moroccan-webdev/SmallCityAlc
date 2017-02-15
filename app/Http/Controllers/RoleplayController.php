@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Roleplay;
-use App\User;
 use App\Level;
+use Purifier;
+use App\User;
 use Session;
 use Auth;
 
@@ -65,7 +66,7 @@ class RoleplayController extends Controller
       $roleplay->city      = $request->city;
       $roleplay->center    = $request->center;
       $roleplay->level_id  = $request->level_id;
-      $roleplay->body      = $request->body;
+      $roleplay->body      = Purifier::clean($request->body);
       $roleplay->save();
       //set flash data with success message
       Session::flash('success', 'The roleplay was successfully saved to the database !');
@@ -129,7 +130,7 @@ class RoleplayController extends Controller
       $roleplay->city      = $request->city;
       $roleplay->center    = $request->center;
       $roleplay->level_id  = $request->level_id;
-      $roleplay->body      = $request->body;
+      $roleplay->body      = Purifier::clean($request->body);
       $roleplay->save();
       //set flash data with success message
       Session::flash('success', 'The roleplay was successfully updated !');

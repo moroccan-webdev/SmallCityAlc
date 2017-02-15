@@ -36,8 +36,8 @@ View Roleplay
                        <i class="fa fa-arrow-circle-o-left big_icon" aria-hidden="false"></i></a>
                   </div>
                   <div class="col-md-6">
-                    <div class="col-sm-12" id="blockone">
-                        Body : {{$roleplay->body}}
+                    <div class="col-sm-12" id="blockonebody">
+                        Body : {!! $roleplay->body !!}
                     </div>
                   </div>
                   <div class="col-md-4">

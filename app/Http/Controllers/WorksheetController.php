@@ -66,8 +66,6 @@ class WorksheetController extends Controller
     $slot    = $worksheet->slot_id;
     $students = $worksheet->students;
     $array = [];
-
-
         if($level >= 1 && $level <= 6)
         {
           //$array = [];

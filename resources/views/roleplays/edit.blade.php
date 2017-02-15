@@ -4,6 +4,18 @@
 Edit Roleplay
 @endsection
 
+@section('stylesheets')
+  <script src="//cloud.tinymce.com/stable/tinymce.min.js"></script>
+  <script>
+    tinymce.init({
+      selector:'textarea',
+      plugins: 'textcolor',
+      toolbar: "forecolor backcolor"
+      //menubar: "forecolor backcolor",
+    });
+  </script>
+@endsection
+
 @section('content')
 <div class="container">
     <div class="row">

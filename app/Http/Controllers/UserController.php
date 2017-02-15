@@ -30,12 +30,9 @@ class UserController extends Controller
 
     public function create()
     {
-      //$user = Auth::user();
-        //if($user->isAdmin()){
-        $levels = Level::pluck('level','id')->all();
+        //$levels = Level::pluck('level','id')->all();
         $roles = Role::pluck('role','id')->all();
         return view('users.create',compact('levels','roles'));
-        //}
     }
 
     public function store(Request $request)
@@ -43,22 +40,22 @@ class UserController extends Controller
       $this->validate($request, array(
         'name' => 'required|max:255',
         'email' => 'required|email|max:255',
-        'level_id' => 'required|integer',
         'role_id' => 'required|integer',
         'phone' => 'max:10|min:10',
-        'class' => 'min:2',
         'password' => 'required|min:6',
         'avatar'   => 'max:10240|mimes:jpeg,png,gif',
+        //'level_id' => 'required|integer',
+        //'class' => 'min:2',
       ));
       //save the data to the database
         $user = new user;
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->level_id = $request->level_id;
         $user->role_id = $request->role_id;
         $user->phone = $request->phone;
-        $user->class = $request->class;
         $user->password = bcrypt($request->password);//bcrypt('password')
+        //$user->level_id = $request->level_id;
+        //$user->class = $request->class;
         //sava the avatar variable in the database
         if($request->hasFile('avatar')){
           $avatar = $request->file('avatar');
@@ -93,13 +90,11 @@ class UserController extends Controller
 
     public function edit($id)
     {
-      //$user = Auth::user();
-      //if($user->isAdmin()){
-        $levels = Level::pluck('level','id')->all();
+        //$levels = Level::pluck('level','id')->all();
         $roles = Role::pluck('role','id')->all();
         $user = User::find($id);
-        return view('users.edit', compact('user', 'levels','roles'));
-      //}
+        return view('users.edit', compact('user','roles'));
+
     }
 
     public function update(Request $request, $id){
@@ -107,20 +102,20 @@ class UserController extends Controller
       $this->validate($request, array(
         'name' => 'required|max:255',
         'email' => 'required|email|max:255',
-        'level_id' => 'required|integer',
         'role_id' => 'required|integer',
-        'phone' => 'min:10',
-        'class' => 'min:2',
+        'phone' => 'max:10|min:10',
         'avatar'   => 'max:10240|mimes:jpeg,png,gif',
+        //'level_id' => 'required|integer',
+        //'class' => 'min:2',
       ));
       //save the data to the database
         $user = User::findOrFail($id);
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->level_id = $request->level_id;
         $user->role_id = $request->role_id;
         $user->phone = $request->phone;
-        $user->class = $request->class;
+        //$user->level_id = $request->level_id;
+        //$user->class = $request->class;
         //sava the avatar variable in the database
         if($request->hasFile('avatar')){
           $avatar = $request->file('avatar');

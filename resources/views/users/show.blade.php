@@ -27,7 +27,7 @@ Show User
           </div>
             <div class="col-md-10 col-md-offset-1">
                 <div class="col-md-12" id="title">
-                    Student Name : {{$user->name}}
+                    Teacher Name : {{$user->name}}
                 </div>
                 <div class="col-md-12" id="title">
                   <div class="col-md-1">
@@ -43,13 +43,7 @@ Show User
                           Email : {{$user->email}}
                       </div>
                       <div class="col-sm-10 col-sm-offset-1" id="blockone">
-                          Class : {{$user->level_id}}
-                      </div>
-                      <div class="col-sm-10 col-sm-offset-1" id="blockone">
                           Role : {{$user->role->role}}
-                      </div>
-                      <div class="col-sm-10 col-sm-offset-1" id="blockone">
-                          Created At : {{$user->class}}
                       </div>
                       <div class="col-sm-10 col-sm-offset-1" id="blockone">
                           Created At : {{$user->phone}}
